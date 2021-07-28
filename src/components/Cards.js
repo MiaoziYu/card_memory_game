@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import Card from "../components/Card"
 
 function Cards(props) {
@@ -18,7 +18,7 @@ function Cards(props) {
 
         if (pendingNumber !== null && pendingNumber + number === cardAmount + 1) {
             let newAvailableNumbers = availableNumbers.filter((availableNumber) => {
-                return availableNumber != pendingNumber && availableNumber != number;
+                return availableNumber !== pendingNumber && availableNumber !== number;
             })
 
             setAvailableNumbers(newAvailableNumbers);
@@ -39,8 +39,7 @@ function Cards(props) {
     }
 
     const increaseClickCount = () => {
-        let newClickCount = clickCount + 1;
-        setClickCount(newClickCount);
+        setClickCount(clickCount + 1);
     }
 
     const cardDisplay = (number) => {
@@ -61,6 +60,7 @@ function Cards(props) {
 
     const resetGame = () => {
         setAvailableNumbers(numberPool);
+        props.startNewGame();
     }
 
     const generateCardList = () => {
@@ -75,6 +75,7 @@ function Cards(props) {
                       verifyNumber={verifyNumber}
                       increaseClickCount={increaseClickCount}
                       clickable={isCardClicable()}
+                      availableNumbers={availableNumbers}
                 />
             )
         }
@@ -84,13 +85,18 @@ function Cards(props) {
 
     return (
         <>
+            <ul className="cards">
+                {generateCardList()}
+            </ul>
             {gameIsDone ? (
-                <button onClick={resetGame}>Play again</button>
-            ) : (
-                <ul className="cards">
-                    {generateCardList()}
-                </ul>
-            )}
+                <div className={"overlay"}>
+                    <img className={"play-again-img"} src="/images/peppa_george.png" alt="" />
+                    <div className={"play-again-btn"} onClick={resetGame}>
+                        play again
+                    </div>
+                </div>
+            ) : null}
+
         </>
     )
 }

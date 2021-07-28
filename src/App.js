@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import Cards from "./components/Cards";
 import "./styles/css/app.css";
 
@@ -7,6 +8,11 @@ function App() {
     const shuffledNumbers = shuffle(numberPool);
     const shuffledImages = shuffle(imagePool);
     const sortedImages = sortImages(shuffledImages);
+    const [gameId, setGameId] = useState(0);
+
+    const startNewGame = () => {
+        setGameId(gameId + 1)
+    };
 
     function range(size, startAt = 0) {
         return [...Array(size).keys()].map(i => i + startAt);
@@ -49,6 +55,7 @@ function App() {
             <Cards
                 numbers={shuffledNumbers}
                 images={sortedImages}
+                startNewGame={startNewGame}
             />
         </div>
     );
