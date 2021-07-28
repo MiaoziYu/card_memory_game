@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function Card(props) {
-    const defaultCardBackImage = "card_back.jpg";
+    const defaultCardBackImage = "card_back.png";
     const [flipStatus, setFlipStatus] = useState("");
 
     const handleClick = () => {

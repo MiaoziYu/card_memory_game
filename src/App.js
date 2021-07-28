@@ -3,7 +3,7 @@ import "./styles/css/app.css";
 
 function App() {
     const numberPool = range(12, 1);
-    const imagePool = ["cake.jpg", "cats.jpg", "cocktiles.jpg", "dogs.jpg", "grill.jpg", "vacation.jpg"];
+    const imagePool = ["peppa.png", "cat.png", "elephant.png", "zebra.png", "rabbit.png", "fox.png"];
     const shuffledNumbers = shuffle(numberPool);
     const shuffledImages = shuffle(imagePool);
     const sortedImages = sortImages(shuffledImages);
