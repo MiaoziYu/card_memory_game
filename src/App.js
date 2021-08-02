@@ -51,7 +51,7 @@ function App() {
     }
 
     return (
-        <div className={"container"} style={{backgroundImage: "url(" + "/images/background.png" + ")"}}>
+        <div className={"container"} style={{backgroundImage: "url(/images/background.png)"}}>
             <div className="page-wrapper">
                 <Cards
                     numbers={shuffledNumbers}

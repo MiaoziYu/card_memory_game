@@ -20,10 +20,10 @@ function Card(props) {
 
     return (
         <li className={`card ${flipStatus} ${props.display}`} onClick={handleClick}>
-            <div style={{backgroundImage: "url(" + "/images/" + defaultCardBackImage + ")"}}
+            <div style={{backgroundImage: "url(/images/" + defaultCardBackImage + ")"}}
                  className={"card-front"}>
             </div>
-            <div style={{backgroundImage: "url(" + "/images/" + props.image + ")"}}
+            <div style={{backgroundImage: "url(/images/" + props.image + ")"}}
                  className={"card-back"}>
             </div>
         </li>
