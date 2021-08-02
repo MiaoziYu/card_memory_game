@@ -54,8 +54,8 @@ function Cards(props) {
         return "hidden";
     }
 
-    const isCardClicable = () => {
-        return clickCount < 2;
+    const isCardClicable = (number) => {
+        return clickCount < 2 && number !== pendingNumber && availableNumbers.includes(number);
     }
 
     const resetGame = () => {
@@ -74,7 +74,7 @@ function Cards(props) {
                       display={cardDisplay(numberPool[i])}
                       verifyNumber={verifyNumber}
                       increaseClickCount={increaseClickCount}
-                      clickable={isCardClicable()}
+                      clickable={isCardClicable(numberPool[i])}
                       availableNumbers={availableNumbers}
                 />
             )
