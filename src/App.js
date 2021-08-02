@@ -51,12 +51,14 @@ function App() {
     }
 
     return (
-        <div className="page-wrapper">
-            <Cards
-                numbers={shuffledNumbers}
-                images={sortedImages}
-                startNewGame={startNewGame}
-            />
+        <div className={"container"} style={{backgroundImage: "url(" + "/images/background.png" + ")"}}>
+            <div className="page-wrapper">
+                <Cards
+                    numbers={shuffledNumbers}
+                    images={sortedImages}
+                    startNewGame={startNewGame}
+                />
+            </div>
         </div>
     );
 }
