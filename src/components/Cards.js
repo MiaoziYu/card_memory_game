@@ -11,12 +11,17 @@ function Cards(props) {
 
     const gameIsDone = availableNumbers.length === 0;
 
-    const verifyNumber = (number) => {
+    const verifyNumber = async (number) => {
         if (!availableNumbers.includes(number)) {
             return;
         }
 
         if (pendingNumber !== null && pendingNumber + number === cardAmount + 1) {
+            if (availableNumbers.length === 2) {
+                const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+                await sleep(1000);
+            }
+
             let newAvailableNumbers = availableNumbers.filter((availableNumber) => {
                 return availableNumber !== pendingNumber && availableNumber !== number;
             })
