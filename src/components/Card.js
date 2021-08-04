@@ -1,8 +1,10 @@
 import React, {useState} from "react";
+import defaultCardBackImage from "../images/card_back.png";
 
 function Card(props) {
-    const defaultCardBackImage = "card_back.png";
     const [flipStatus, setFlipStatus] = useState("");
+    const image = require(`../images/${props.image}`).default;
+    console.log(image)
 
     const handleClick = () => {
         if (props.clickable !== true) {
@@ -20,10 +22,10 @@ function Card(props) {
 
     return (
         <li className={`card ${flipStatus} ${props.display}`} onClick={handleClick}>
-            <div style={{backgroundImage: "url(/images/" + defaultCardBackImage + ")"}}
+            <div style={{backgroundImage: `url(${defaultCardBackImage})`}}
                  className={"card-front"}>
             </div>
-            <div style={{backgroundImage: "url(/images/" + props.image + ")"}}
+            <div style={{backgroundImage: `url(${image})`}}
                  className={"card-back"}>
             </div>
         </li>
